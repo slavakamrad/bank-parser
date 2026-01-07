@@ -2,5 +2,26 @@
 name = "bank-parser"
 version = "0.1.0"
 edition = "2024"
+description = "Library for parsing banking transactions"
+
+[lib]
+name = "transact_parser"
+path = "src/lib.rs"
+
+[[bin]]
+name = "transact_converter"
+path = "src/main.rs"
+
+[[bin]]
+name = "transact_compare"
+path = "src/bin/comparer.rs"
 
 [dependencies]
+thiserror = "2"
+csv = "1.4"
+serde = { version = "1", features = ["derive"] }
+clap = { version = "4", features = ["derive"] }
+chrono = "0.4" 
+
+[dev-dependencies]
+tempfile = "3"
