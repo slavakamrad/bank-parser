@@ -51,3 +51,18 @@ pub fn write_format<W: std::io::Write>(
         _ => Err(ParserError::UnsupportedFormat(format.to_string())),
     }
 }
+
+impl Default for Transaction {
+    fn default() -> Self {
+        Transaction {
+            tx_id: 0,
+            tx_type: String::new(),
+            from_user_id: 0,
+            to_user_id: 0,
+            amount: 0.0,
+            timestamp: 0,
+            status: String::new(),
+            description: String::new(),
+        }
+    }
+}
