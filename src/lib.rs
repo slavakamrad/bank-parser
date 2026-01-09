@@ -33,8 +33,8 @@ pub struct Transaction {
 pub fn parse_format<R: std::io::Read>(reader: R, format: &str) -> Result<Vec<Transaction>> {
     match format.to_lowercase().as_str() {
         "csv" => formats::from_csv(reader),
-        // "binary" => bin_format::from_binary(reader),
-        // "text" => txt_format::from_text(reader),
+        "binary" => formats::from_binary(reader),
+        "text" => formats::from_text(reader),
         _ => Err(ParserError::UnsupportedFormat(format.to_string())),
     }
 }
@@ -46,8 +46,8 @@ pub fn write_format<W: std::io::Write>(
 ) -> Result<()> {
     match format.to_lowercase().as_str() {
         "csv" => formats::to_csv(transactions, writer),
-        // "binary" => formats::to_binary(transactions, writer),
-        // "text" => formats::to_text(transactions, writer),
+        "binary" => formats::to_binary(transactions, writer),
+        "text" => formats::to_text(transactions, writer),
         _ => Err(ParserError::UnsupportedFormat(format.to_string())),
     }
 }
