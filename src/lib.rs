@@ -18,7 +18,7 @@ pub struct Transaction {
     pub to_user_id: u64,
 
     #[serde(rename = "AMOUNT")]
-    pub amount: f64,
+    pub amount: u64,
 
     #[serde(rename = "TIMESTAMP")]
     pub timestamp: i64,
@@ -59,7 +59,7 @@ impl Default for Transaction {
             tx_type: String::new(),
             from_user_id: 0,
             to_user_id: 0,
-            amount: 0.0,
+            amount: 0,
             timestamp: 0,
             status: String::new(),
             description: String::new(),
