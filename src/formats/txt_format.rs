@@ -85,14 +85,14 @@ pub fn to_text<W: Write>(transactions: &[Transaction], writer: W) -> Result<()> 
 
     for (i, tx) in transactions.iter().enumerate() {
         writeln!(wtr, "# Record {} ({})", i + 1, tx.tx_type)?;
-        writeln!(wtr, "TX_ID: {}", tx.tx_id)?;
         writeln!(wtr, "TX_TYPE: {}", tx.tx_type)?;
-        writeln!(wtr, "FROM_USER_ID: {}", tx.from_user_id)?;
         writeln!(wtr, "TO_USER_ID: {}", tx.to_user_id)?;
-        writeln!(wtr, "AMOUNT: {}", tx.amount)?;
+        writeln!(wtr, "FROM_USER_ID: {}", tx.from_user_id)?;
         writeln!(wtr, "TIMESTAMP: {}", tx.timestamp)?;
-        writeln!(wtr, "STATUS: {}", tx.status)?;
         writeln!(wtr, "DESCRIPTION: \"{}\"", tx.description)?;
+        writeln!(wtr, "TX_ID: {}", tx.tx_id)?;
+        writeln!(wtr, "AMOUNT: {}", tx.amount)?;
+        writeln!(wtr, "STATUS: {}", tx.status)?;
         writeln!(wtr)?;
     }
 
