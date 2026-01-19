@@ -66,3 +66,28 @@ impl Default for Transaction {
         }
     }
 }
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::io::Cursor;
+
+    #[test]
+    fn test_csv_read_write() {
+        // Для CSV default() может работать
+        let tx = Transaction::default();
+        
+        let mut buffer = Vec::new();
+        write_format(&[tx.clone()], &mut buffer, "csv").unwrap();
+        
+        let reader = Cursor::new(buffer);
+        let parsed = parse_format(reader, "csv").unwrap();
+        
+        assert_eq!(parsed.len(), 1);
+    }
+    #[test]
+    fn test_unsupported_format() {
+        let reader = Cursor::new(b"");
+        let result = parse_format(reader, "xml");
+        assert!(matches!(result, Err(ParserError::UnsupportedFormat(_))));
+    }
+}
