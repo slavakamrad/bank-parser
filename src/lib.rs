@@ -73,7 +73,6 @@ mod tests {
 
     #[test]
     fn test_csv_read_write() {
-        // Для CSV default() может работать
         let tx = Transaction::default();
         
         let mut buffer = Vec::new();

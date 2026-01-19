@@ -6,12 +6,20 @@
 
 Проект состоит из трёх частей:
 
-1. **parser** - библиотека для парсинга финансовых данных
-2. **cli-converter** - утилита для конвертации между форматами
-3. **cli-comparer** - утилита для сравнения файлов
+1. **transact_parser** - библиотека для парсинга финансовых данных
+2. **transact_converter** - утилита для конвертации между форматами
+3. **transact_compare** - утилита для сравнения файлов
 
-## Поддерживаемые форматы
+## Поддерживаемые форматы:
 
 - CSV
-- Binary (бинарный)
-- Text (текстовый)
+- Binary
+- Text
+
+## Примеры работы с программой:
+
+#### Чтение и коневертация файлов
+``` cargo run --bin transact_converter --   --input data/records_example.bin   --input-format binary   --output-format csv   --output test_binary.csv ```
+
+#### Сравнение файлов
+``` $ cargo run --bin transact_compare --   --file1 data/records_example.bin   --format1 binary   --file2 data/records_example.csv   --format2 csv ```
