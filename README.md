@@ -18,8 +18,20 @@
 
 ## Примеры работы с программой:
 
-#### Чтение и коневертация файлов
-``` cargo run --bin transact_converter --   --input data/records_example.bin   --input-format binary   --output-format csv   --output test_binary.csv ```
+#### Чтение и конвертация файлов
+```bash
+cargo run --bin transact_converter -- \
+  --input data/records_example.bin \
+  --input-format binary \
+  --output-format csv \
+  --output test_binary.csv
+```
 
 #### Сравнение файлов
-``` $ cargo run --bin transact_compare --   --file1 data/records_example.bin   --format1 binary   --file2 data/records_example.csv   --format2 csv ```
+```bash
+cargo run --bin transact_compare -- \
+  --file1 data/records_example.bin \
+  --format1 binary \
+  --file2 data/records_example.csv \
+  --format2 csv
+```
